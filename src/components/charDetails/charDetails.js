@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import './charDetails.css';
 export default class CharDetails extends Component {
+    state = {
+        name: null,
+        gender: null,
+        born: null,
+        died: null,
+        culture: null,
+    }
 
     render() {
         return (
