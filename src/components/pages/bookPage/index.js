@@ -6,6 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 
 
+
+
 class BookPage extends Component {
     gotService = new GotService();
 
@@ -31,13 +33,16 @@ class BookPage extends Component {
         return (
             <ItemList
                 renderItem={({ name }) => name}
-                getData={this.gotService.getAllBooks}
+                // getData={this.gotService.getAllBooks}
                 onItemSelected={(itemId) => {
                     this.props.history.push(itemId)
+                    console.log(this.props.history)
                 }} />
         )
         
     }
     
 }
-export default withRouter(BookPage);
+
+
+export default withRouter(BookPage)

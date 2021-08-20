@@ -7,6 +7,10 @@ import ErrorMessage from '../errorMessage'
 export default class RandomChar extends Component {
     gotServices = new gotServices();
 
+    
+    static defaultProps = {
+        interval: 1000
+    }
     state = {
         char: {},
         loading: true,
@@ -15,7 +19,7 @@ export default class RandomChar extends Component {
 
     componentDidMount() {
         this.updateChar();
-        this.timerId = setInterval(this.updateChar, 10000)
+        this.timerId = setInterval(this.updateChar, this.props.interval)
     }
     componentWillUnmount() {
         clearInterval(this.timerId);
@@ -59,6 +63,7 @@ export default class RandomChar extends Component {
         );
     }
 }
+
 
 const View = ({char}) => {
     const { name, gender, born, died, culture } = char;
